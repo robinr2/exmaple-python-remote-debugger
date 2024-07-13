@@ -14,5 +14,8 @@ WORKDIR /app
 RUN pip install debugpy
 
 COPY main.py .
+COPY entrypoint.sh .
 
-CMD ["python", "main.py"]
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]
